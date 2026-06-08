@@ -59,12 +59,11 @@ fun CompleteProfileCard(onComplete: () -> Unit) {
 fun ModernCourseCard(course: Course, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val goal = course.goal ?: "saludable"
     
-    // Lifestyle URLs
-    val imageUrl = when(goal.lowercase()) {
-        "pérdida de peso" -> "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600"
-        "masa muscular" -> "https://images.unsplash.com/photo-1532384748853-8f54a8f476e2?q=80&w=600"
-        "vegano" -> "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600"
-        else -> "https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=600"
+    val (emoji, gradient) = when(goal.lowercase()) {
+        "pérdida de peso" -> "⚖️" to listOf(Color(0xFFE8F5E9), Color(0xFFC8E6C9))
+        "masa muscular" -> "💪" to listOf(Color(0xFFFFF3E0), Color(0xFFFFE0B2))
+        "vegano" -> "🥦" to listOf(Color(0xFFF1F8E9), Color(0xFFDCEDC8))
+        else -> "🥗" to listOf(Color(0xFFE3F2FD), Color(0xFFBBDEFB))
     }
 
     Surface(
@@ -75,13 +74,14 @@ fun ModernCourseCard(course: Course, onClick: () -> Unit, modifier: Modifier = M
         modifier = modifier
     ) {
         Column {
-            Box(modifier = Modifier.fillMaxWidth().height(180.dp)) {
-                AsyncImage(
-                    model = imageUrl,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
-                )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(160.dp)
+                    .background(Brush.linearGradient(gradient)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(emoji, fontSize = 72.sp)
                 Surface(
                     modifier = Modifier.align(Alignment.TopEnd).padding(16.dp),
                     color = ForestGreen,

@@ -25,15 +25,13 @@ La aplicación consume una API REST desarrollada en **Django REST Framework** co
 
 ## 🛠️ Entidades Implementadas (CRUD Completo)
 
-La aplicación gestiona 7 entidades principales para un control total:
+La aplicación gestiona 5 entidades principales para un control total:
 
 1.  **Usuarios:** Gestión de perfiles, autenticación JWT y roles (Admin, Nutricionista, Paciente).
 2.  **Planes Nutricionales:** Catálogo de dietas (Keto, Vegano, etc.) con metas calóricas y duración.
 3.  **Nutricionistas:** Registro profesional, especialidades y gestión de cuentas de acceso.
 4.  **Pacientes:** Seguimiento de medidas (peso, altura), IMC y vinculación con planes.
 5.  **Consultas Dietéticas:** Agenda de citas, gestión de estados (Programada, En Curso, Cancelada).
-6.  **Alimentos (Módulos):** Desglose detallado de platos sugeridos por cada tipo de comida.
-7.  **Carrito de Contratación:** Gestión de pedidos para la adquisición de planes.
 
 ---
 
@@ -47,7 +45,7 @@ La aplicación gestiona 7 entidades principales para un control total:
     *   *Vista Paciente:* Agendar con especialistas y ver historial.
     *   *Vista Nutri:* Dashboard de citas hoy, gestión de estados y validación de pacientes.
 6.  **Perfil VIP:** Gestión de identidad, tarjeta de membresía Premium y configuración.
-7.  **Panel Administrativo:** Control total de las 7 entidades con capacidades de creación, edición y borrado.
+7.  **Panel Administrativo:** Control total de las entidades con capacidades de creación, edición y borrado.
 
 ---
 

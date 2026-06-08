@@ -132,12 +132,11 @@ fun HomeScreen(
 @Composable
 fun PhotoMealCard(meal: com.dietetic.frontend.domain.model.Module) {
     val mealType = meal.mealType ?: "snack"
-    // URL de ejemplo fotorrealista basada en el tipo de comida
-    val imageUrl = when(mealType.lowercase()) {
-        "desayuno" -> "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=500&auto=format&fit=crop"
-        "almuerzo" -> "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=500&auto=format&fit=crop"
-        "cena" -> "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=500&auto=format&fit=crop"
-        else -> "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=500&auto=format&fit=crop"
+    val (emoji, gradient) = when(mealType.lowercase()) {
+        "desayuno" -> "🍳" to listOf(Color(0xFFFFF9C4), Color(0xFFFFECB3))
+        "almuerzo" -> "🥗" to listOf(Color(0xFFDCEDC8), Color(0xFFC8E6C9))
+        "cena" -> "🍲" to listOf(Color(0xFFE1F5FE), Color(0xFFB3E5FC))
+        else -> "🍎" to listOf(Color(0xFFF1F8E9), Color(0xFFDCEDC8))
     }
 
     Surface(
@@ -147,19 +146,20 @@ fun PhotoMealCard(meal: com.dietetic.frontend.domain.model.Module) {
         shadowElevation = 8.dp
     ) {
         Column {
-            Box(modifier = Modifier.height(140.dp).fillMaxWidth()) {
-                AsyncImage(
-                    model = imageUrl,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(topStart = 32.dp, topEnd = 32.dp))
-                )
+            Box(
+                modifier = Modifier
+                    .height(140.dp)
+                    .fillMaxWidth()
+                    .background(Brush.verticalGradient(gradient)),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(emoji, fontSize = 64.sp)
                 Surface(
                     modifier = Modifier.padding(12.dp).align(Alignment.TopEnd),
-                    color = Color.Black.copy(alpha = 0.4f),
+                    color = Color.Black.copy(alpha = 0.1f),
                     shape = CircleShape
                 ) {
-                    Icon(Icons.Default.Search, null, tint = PremiumGold, modifier = Modifier.padding(6.dp).size(16.dp))
+                    Icon(Icons.Default.Search, null, tint = ForestGreen, modifier = Modifier.padding(6.dp).size(16.dp))
                 }
             }
             Column(modifier = Modifier.padding(16.dp)) {

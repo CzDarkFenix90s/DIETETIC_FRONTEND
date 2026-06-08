@@ -362,7 +362,6 @@ private fun SectionHeader(title: String, subtitle: String) {
 
 @Composable
 fun NutricionistaOfficeCard(nut: Nutricionista) {
-    val officeBg = "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=400"
     Surface(
         modifier = Modifier.width(200.dp),
         shape = RoundedCornerShape(32.dp),
@@ -370,9 +369,19 @@ fun NutricionistaOfficeCard(nut: Nutricionista) {
         shadowElevation = 4.dp
     ) {
         Column {
-            Box(modifier = Modifier.height(120.dp).fillMaxWidth()) {
-                AsyncImage(model = officeBg, contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxSize())
-                Box(modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(listOf(Color.Transparent, Color.Black.copy(alpha = 0.5f)))))
+            Box(
+                modifier = Modifier
+                    .height(120.dp)
+                    .fillMaxWidth()
+                    .background(Brush.verticalGradient(FreshGradient)),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(Icons.Rounded.Person, null, tint = Color.White.copy(alpha = 0.8f), modifier = Modifier.size(48.dp))
+                Icon(
+                    Icons.Rounded.LocationOn, null, 
+                    tint = PremiumGold, 
+                    modifier = Modifier.align(Alignment.TopEnd).padding(12.dp).size(18.dp)
+                )
             }
             Column(modifier = Modifier.padding(16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("${nut.firstName} ${nut.lastName}", style = MaterialTheme.typography.titleMedium, color = ForestGreen, maxLines = 1)

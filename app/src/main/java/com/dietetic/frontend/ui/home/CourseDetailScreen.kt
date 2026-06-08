@@ -187,26 +187,19 @@ private fun CourseDetailContent(
                 .padding(padding)
                 .verticalScroll(rememberScrollState())
         ) {
-            // Hero Image Section
+            // Hero Icon Section
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(300.dp)
+                    .height(280.dp)
             ) {
                 Box(
-                    modifier = Modifier.fillMaxSize().background(Brush.verticalGradient(heroBg))
-                )
-                if (course.imageUrl != null) {
-                    AsyncImage(
-                        model = course.imageUrl,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier.fillMaxSize()
-                    )
-                } else {
-                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text(flag, fontSize = 120.sp)
-                    }
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Brush.verticalGradient(heroBg)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(flag, fontSize = 120.sp)
                 }
                 
                 // Overlay buttons
