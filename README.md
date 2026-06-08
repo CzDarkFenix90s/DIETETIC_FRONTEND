@@ -11,8 +11,8 @@ DIETETIC es una solución móvil integral diseñada para modernizar la gestión 
 
 ## 🌐 Configuración del Backend
 La aplicación consume una API REST desarrollada en **Django REST Framework** con **PostgreSQL**.
-*   **URL Base:** `https://paz-dietetica.uaeftt-ute.site/api/`
-*   **Configuración:** La URL se define en el archivo `local.properties` como `API_BASE_URL`.
+*   **URL Base:** `https://paz-dietetica.uaeftt-ute.site/api/` (Configurada por defecto).
+*   **Personalización:** Si desea usar una URL distinta, puede definirla en el archivo `local.properties` como `API_BASE_URL`. En caso de no existir el archivo, la app usará la URL de producción automáticamente.
 
 ## 👤 Usuarios de Prueba
 | Rol | Usuario                | Contraseña    |
